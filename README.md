@@ -1,1 +1,1 @@
-hi
+cc -Wall -Wextra -Werror push_swap_main.c libft/ft_atoi.c libft/ft_isdigit.c libft/ft_memcmp.c libft/ft_strlen.c compute_disorder.c not_int_error.c ft_printf/ft_printf.c ft_printf/ft_s_string.c ft_printf/ft_s_putnbr.c ft_printf/ft_s_putchar.c  libft/ft_split.c len_arr.c duplicate_error.c 
