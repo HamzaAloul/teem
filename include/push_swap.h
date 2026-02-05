@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        +:+      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabu-are <mabu-are@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 18:02:23 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/01/23 18:02:23 by mabu-are         ###   ########.fr       */
+/*   Updated: 2026/02/05 20:15:45 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,13 @@ typedef struct s_stacks
 
 // push_swap_main.c
 int		main(int argc, char **argv);
-
+double	compute_disorder(t_stacks *stacks);
+int	len_arr(char **argv, int argc);
 /* ************************************************************************** */
 /*                        ERROR HANDLING & INPUT                              */
 /* ************************************************************************** */
+void	duplicate_error(int *n, int size);
+void	not_int_error(char **argv);
 
 /* ************************************************************************** */
 /*                        	  MOVES		                              */
@@ -73,5 +76,5 @@ void	rr(t_stacks *stacks);
 void	rrr(t_stacks *stacks);
 
 void	exit_free_stacks(int exit_code, const char *err_msg, t_stacks *stacks);
-void	check_arg_put_stacks(int argc, char argv[][], t_stacks *stacks);
+void	check_arg_put_stacks(int argc, char **argv, t_stacks *stacks);
 #endif

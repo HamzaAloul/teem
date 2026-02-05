@@ -1,42 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   duplicate_error.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halalul <halalul@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 13:30:55 by halalul           #+#    #+#             */
-/*   Updated: 2026/02/05 16:45:31 by halalul          ###   ########.fr       */
+/*   Created: 2026/02/05 19:50:24 by halalul           #+#    #+#             */
+/*   Updated: 2026/02/05 20:13:47 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
-int	ft_atoi(const char *nptr)
+static void	loop(int i, int size, int *nb, int *n)
 {
-	long	n;
-	long	s;
-	long	i;
+	int	er;
+	int	j;
 
-	i = 0;
-	n = 0;
-	s = 1;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	j = 0;
+	er = 0;
+	while (j < size)
 	{
-		if (nptr[i] == '-')
-			s = -1;
-		i++;
+		if (nb[i] == n[j])
+			er++;
+		j++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		n = n * 10 + (nptr[i] - '0');
-		i++;
-	}
-	i = n * s;
-	if (i < -2147483648 || i > 2147483647)
+	if (er == 2)
 	{
 		ft_printf("Error\n");
 		exit(1);
 	}
-	return (i);
+}
+
+void	duplicate_error(int *n, int size)
+{
+	int	i;
+	int	*nb;
+
+	i = 0;
+	nb = malloc(sizeof(int) * size);
+	if (!nb)
+		return ;
+	while (i < size)
+	{
+		nb[i] = n[i];
+		loop(i, size, nb, n);
+		i++;
+	}
 }

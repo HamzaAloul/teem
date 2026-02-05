@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   len_arr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halalul <halalul@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 13:30:55 by halalul           #+#    #+#             */
-/*   Updated: 2026/02/05 16:45:31 by halalul          ###   ########.fr       */
+/*   Created: 2026/02/05 19:25:36 by halalul           #+#    #+#             */
+/*   Updated: 2026/02/05 19:33:43 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
-int	ft_atoi(const char *nptr)
+int	len_arr(char **argv, int argc)
 {
-	long	n;
-	long	s;
-	long	i;
+	int		i;
+	int		j;
+	int		jj;
+	char	**npr;
 
-	i = 0;
-	n = 0;
-	s = 1;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	i = 1;
+	j = 0;
+	while (i < argc)
 	{
-		if (nptr[i] == '-')
-			s = -1;
+		npr = ft_split(argv[i], ' ');
+		jj = 0;
+		while (npr[jj])
+		{
+			j++;
+			jj++;
+		}
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		n = n * 10 + (nptr[i] - '0');
-		i++;
-	}
-	i = n * s;
-	if (i < -2147483648 || i > 2147483647)
-	{
-		ft_printf("Error\n");
-		exit(1);
-	}
-	return (i);
+	return (j);
 }

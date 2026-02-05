@@ -52,14 +52,8 @@ static size_t	format(const char c, va_list *ap)
 		i += ft_s_putchar(va_arg(*ap, int));
 	else if (c == 's')
 		i += ft_s_string(va_arg(*ap, char *));
-	else if (c == 'p')
-		i += ft_s_void(va_arg(*ap, void *));
 	else if (c == 'd' || c == 'i')
 		i += ft_s_putnbr(va_arg(*ap, int));
-	else if (c == 'u')
-		i += ft_s_putnbr_u(va_arg(*ap, unsigned int));
-	else if (c == 'x' || c == 'X')
-		i += ft_s_puthex(va_arg(*ap, unsigned int), c);
 	return (i);
 }
 

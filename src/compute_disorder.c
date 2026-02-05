@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   compute_disorder.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halalul <halalul@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 13:30:55 by halalul           #+#    #+#             */
-/*   Updated: 2026/02/05 16:45:31 by halalul          ###   ########.fr       */
+/*   Created: 2026/02/03 14:16:18 by halalul           #+#    #+#             */
+/*   Updated: 2026/02/05 16:48:27 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
-int	ft_atoi(const char *nptr)
+double	compute_disorder(t_stacks *stacks)
 {
-	long	n;
-	long	s;
-	long	i;
+	double	mistakes;
+	int		total_pairs;
+	size_t	i;
+	size_t	j;
 
+	mistakes = 0;
+	total_pairs = 0;
 	i = 0;
-	n = 0;
-	s = 1;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	while (i < (stacks->size_a))
 	{
-		if (nptr[i] == '-')
-			s = -1;
+		j = i + 1;
+		while (j < (stacks->size_a))
+		{
+			total_pairs++;
+			if ((stacks->stack_a)[i] > (stacks->stack_a)[j])
+				mistakes++;
+			j++;
+		}
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		n = n * 10 + (nptr[i] - '0');
-		i++;
-	}
-	i = n * s;
-	if (i < -2147483648 || i > 2147483647)
-	{
-		ft_printf("Error\n");
-		exit(1);
-	}
-	return (i);
+	return (mistakes / total_pairs);
 }
