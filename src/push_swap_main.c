@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-static int	**fill_stack_a(int **a, char **argv, int argc)
+static void	fill_stack_a(int **a, char **argv, int argc)
 {
 	int		i;
 	int		j;
@@ -33,7 +33,6 @@ static int	**fill_stack_a(int **a, char **argv, int argc)
 		}
 		i++;
 	}
-	return (a);
 }
 
 int	main(int argc, char **argv)
@@ -49,6 +48,6 @@ int	main(int argc, char **argv)
 	if (!stacks)
 		return (0);
 	fill_stack_a(&(stacks->stack_a), argv, argc);
-	duplicate_error(stacks->stack_a, stacks->size_a);
+	duplicate_error(stacks);
 	return (0);
 }

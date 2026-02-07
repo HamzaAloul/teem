@@ -28,7 +28,7 @@ static void	loop(int i, int size, int *nb, int *n)
 	if (er == 2)
 	{
 		ft_printf("Error\n");
-		exit(1);
+		exit_free_stack(3, "Error\n", );
 	}
 }
 
