@@ -6,7 +6,7 @@
 /*   By: mabu-are <mabu-are@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 16:39:13 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/01/28 16:39:13 by mabu-are         ###   ########.fr       */
+/*   Updated: 2026/02/08 09:44:21 by mabu-are         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,13 @@ void	pb(t_stacks *stacks)
 	size_t	i;
 
 	ft_printf("pb\n");
-	if (stacks->size_b == 0)
+	if (stacks->size_a == 0)
 		return ;
 	i = stacks->size_b;
 	while (i > 0)
 	{
 		stacks->stack_b[i] = stacks->stack_b[i - 1];
+		i--;
 	}
 	stacks->stack_b[0] = stacks->stack_a[0];
 	i = 0;
