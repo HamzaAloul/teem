@@ -25,7 +25,8 @@ SRC :=  push_swap_main.c \
 	duplicate_error.c \
 	len_arr.c \
 	not_int_error.c \
-	bubble.c
+	bubble.c \
+	Chunk_based.c
 
 OBJ := $(SRC:%.c=$(OBJDIR)/%.o)
 

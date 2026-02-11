@@ -6,7 +6,7 @@
 /*   By: mabu-are <mabu-are@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 18:02:23 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/02/05 20:15:45 by halalul          ###   ########.fr       */
+/*   Updated: 2026/02/11 15:24:41 by mabu-are         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ typedef struct s_stacks
 // push_swap_main.c
 int		main(int argc, char **argv);
 double	compute_disorder(t_stacks *stacks);
-int	len_arr(char **argv, int argc);
+int		len_arr(char **argv, int argc);
+void	test_if_sort(t_stacks *stacks);
 /* ************************************************************************** */
 /*                        ERROR HANDLING & INPUT                              */
 /* ************************************************************************** */

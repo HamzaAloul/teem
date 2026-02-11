@@ -6,13 +6,13 @@
 /*   By: mabu-are <mabu-are@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 08:38:20 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/02/08 09:48:31 by mabu-are         ###   ########.fr       */
+/*   Updated: 2026/02/11 15:35:30 by mabu-are         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	test_if_sort(t_stacks *stacks)
+void	test_if_sort(t_stacks *stacks)
 {
 	size_t	size;
 
@@ -24,7 +24,7 @@ static void	test_if_sort(t_stacks *stacks)
 		else
 			return ;
 	}
-	exit_free_stacks(0, "error\n", stacks);
+	exit_free_stacks(EXIT_SUCCESS, "error\n", stacks);
 }
 
 void	bubble(t_stacks *stacks)
