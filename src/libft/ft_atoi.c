@@ -3,55 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabu-are <mabu-are@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: halalul <halalul@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/27 20:27:18 by mabu-are          #+#    #+#             */
-/*   Updated: 2025/12/09 20:17:20 by mabu-are         ###   ########.fr       */
+/*   Created: 2025/11/26 13:30:55 by halalul           #+#    #+#             */
+/*   Updated: 2026/02/05 16:45:31 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-static size_t	ft_to_begin(const char *s);
+#include "../../include/push_swap.h"
 
 int	ft_atoi(const char *nptr)
 {
-	size_t		i;
-	size_t		sign;
-	int			num;
-
-	num = 0;
-	i = 0 + ft_to_begin(nptr);
-	if (nptr[i] == '\0')
-		return (0);
-	sign = i;
-	if (nptr[i] == '-' || nptr[i] == '+')
-		i++;
-	while (nptr[i] && ft_isdigit(nptr[i]))
-	{
-		if (ft_isdigit(nptr[i]))
-		{
-			num *= 10;
-			num += (nptr[i] - '0');
-		}
-		i++;
-	}
-	if (ft_memcmp(nptr + sign, "-2147483648", 11) == 0)
-		return (-2147483648);
-	if (nptr[sign] == '-')
-		return (((int)(num)) * -1);
-	return (num);
-}
-
-static size_t	ft_to_begin(const char *s)
-{
-	size_t	i;
+	long	n;
+	long	s;
+	long	i;
 
 	i = 0;
-	while (s[i] == ' ' || (s[i] >= 9 && s[i] <= 13))
+	n = 0;
+	s = 1;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			s = -1;
 		i++;
-	if (s[i] == '-' || ft_isdigit(s[i]) || s[i] == '+')
-		return (i);
-	else
-		return (ft_strlen(s));
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		n = n * 10 + (nptr[i] - '0');
+		i++;
+	}
+	i = n * s;
+	if (i < -2147483648 || i > 2147483647)
+	{
+		ft_printf("Error\n");
+		exit(1);
+	}
+	return (i);
 }

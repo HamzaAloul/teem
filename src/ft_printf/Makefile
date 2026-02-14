@@ -11,7 +11,7 @@
 # **************************************************************************** #
 MAKEFLAGS += --no-builtin-rules
 
-OBJDIR  := ../../obj/ft_libft
+OBJDIR  := ../../obj/ft_printf
 NAME    := $(OBJDIR)/libftprintf.a
 CC      := cc
 CFLAGS  := -Wall -Wextra -Werror -I.

@@ -50,7 +50,7 @@ void	ss(t_stacks *stacks)
 	if (stacks->size_b >= 2)
 	{
 		temp = stacks->stack_b[1];
-		stacks->stack_b[1] = stacks->stack[0];
+		stacks->stack_b[1] = stacks->stack_b[0];
 		stacks->stack_b[0] = temp;
 	}
 }

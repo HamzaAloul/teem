@@ -25,8 +25,10 @@ SRC :=  push_swap_main.c \
 	duplicate_error.c \
 	len_arr.c \
 	not_int_error.c \
-	bubble.c \
-	Chunk_based.c
+	selection_sort.c \
+	fill_stack_a.c \
+	adaptive.c \
+	radix.c
 
 OBJ := $(SRC:%.c=$(OBJDIR)/%.o)
 

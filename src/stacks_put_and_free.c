@@ -10,12 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	exit_free_stacks(int exit_code, const char *err_msg, t_stacks *s)
+#include "../include/push_swap.h"
+
+void	exit_free_stacks(int exit_code, char *err_msg, t_stacks *s)
 {
 	free(s->stack_a);
 	free(s->stack_b);
 	free(s->target_a);
-	free(s->cost);
 	free(s->rr);
 	free(s->rrr);
 	free(s);

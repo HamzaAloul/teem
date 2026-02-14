@@ -12,14 +12,12 @@
 
 #include "../include/push_swap.h"
 
-int	len_arr(char **argv, int argc)
+int	len_arr(char **argv, int argc, int i)
 {
-	int		i;
 	int		j;
 	int		jj;
 	char	**npr;
 
-	i = 1;
 	j = 0;
 	while (i < argc)
 	{
