@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacks_put_and_free.c                              :+:      :+:    :+:   */
+/*   radix.c                                            +:+      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabu-are <mabu-are@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 01:54:54 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/01/24 01:54:54 by mabu-are         ###   ########.fr       */
+/*   Created: 2026/02/16 02:10:16 by mabu-are          #+#    #+#             */
+/*   Updated: 2026/02/16 02:10:16 by mabu-are         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	exit_free_stacks(int exit_code, char *err_msg, t_stacks *s)
+void	radix(t_stacks *s)
 {
-	free(s->stack_a);
-	free(s->stack_b);
-	free(s);
-	ft_printf("%s", err_msg);
-	exit(exit_code);
+	size_t	i;
+	int		bit;
+
+	bit = 0;
+	while (true)
+	{
+		i = s->size_a;
+		while (i > 0)
+		{
+			if ((s->stack_a[0] >> bit) & 1)
+				ra(s);
+			else if (s->size_a > 1)
+				pb(s);
+			i--;
+		}
+		while (s->size_b)
+			pa(s);
+		test_if_sort(s);
+		bit++;
+	}
 }

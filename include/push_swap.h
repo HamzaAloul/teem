@@ -34,11 +34,7 @@ typedef struct s_stacks
 	int		*stack_b;
 	size_t	size_a;
 	size_t	size_b;
-	size_t	*target_a;
-	size_t	target_b;
 	double	cost;
-	int		*rr;
-	int		*rrr;
 }	t_stacks;
 
 /* ************************************************************************** */
@@ -53,6 +49,9 @@ void		test_if_sort(t_stacks *stacks);
 void		flags(int argc, char **argv);
 void		selection_sort(t_stacks *s);
 void		short_sort(t_stacks *s);
+void		refill(t_stacks *s);
+void		chunke_sort(t_stacks *stacks, int min);
+void		radix(t_stacks *s);
 int			len_arr(char **argv, int argc, int i);
 int			main(int argc, char **argv);
 /* ************************************************************************** */

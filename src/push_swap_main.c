@@ -21,6 +21,8 @@ static void	ev_thing(int argc, char **argv, int i, t_stacks *stacks)
 		stacks = fill_stack_a(argv, argc, i);
 		test_if_sort(stacks);
 		duplicate_error(stacks);
+		refill(stacks);
+		chunke_sort(stacks, 0);
 	}
 	else if (ft_strncmp(argv[i], "--complex", 9) == 0)
 	{
@@ -29,6 +31,7 @@ static void	ev_thing(int argc, char **argv, int i, t_stacks *stacks)
 		stacks = fill_stack_a(argv, argc, i);
 		test_if_sort(stacks);
 		duplicate_error(stacks);
+		refill(stacks);
 		radix(stacks);
 	}
 	else

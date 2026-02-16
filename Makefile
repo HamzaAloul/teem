@@ -28,6 +28,8 @@ SRC :=  push_swap_main.c \
 	selection_sort.c \
 	fill_stack_a.c \
 	adaptive.c \
+	refill.c \
+	chunke.c \
 	radix.c
 
 OBJ := $(SRC:%.c=$(OBJDIR)/%.o)
