@@ -6,7 +6,7 @@
 /*   By: mabu-are <mabu-are@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:12:17 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/02/14 15:27:38 by halalul          ###   ########.fr       */
+/*   Updated: 2026/02/16 16:03:16 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	main(int argc, char **argv)
 	t_stacks	*stacks;
 	int			i;
 
+	if (argc < 2)
+		return (0);
 	i = 1;
 	if (ft_strncmp(argv[i], "--bench", 7) == 0)
 		i++;
