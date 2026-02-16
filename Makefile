@@ -30,7 +30,8 @@ SRC :=  push_swap_main.c \
 	adaptive.c \
 	refill.c \
 	chunke.c \
-	radix.c
+	radix.c \
+	bench.c
 
 OBJ := $(SRC:%.c=$(OBJDIR)/%.o)
 

@@ -6,17 +6,19 @@
 /*   By: mabu-are <mabu-are@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 02:15:00 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/01/28 02:15:00 by mabu-are         ###   ########.fr       */
+/*   Updated: 2026/02/16 23:15:50 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	sa(t_stacks *stacks)
+void	sa(t_stacks *stacks, t_bench *b)
 {
 	int	temp;
 
 	ft_printf("sa\n");
+	b->sa++;
+	b->total++;
 	if (stacks->size_a < 2)
 		return ;
 	temp = stacks->stack_a[1];
@@ -24,11 +26,13 @@ void	sa(t_stacks *stacks)
 	stacks->stack_a[0] = temp;
 }
 
-void	sb(t_stacks *stacks)
+void	sb(t_stacks *stacks, t_bench *b)
 {
 	int	temp;
 
 	ft_printf("sb\n");
+	b->sb++;
+	b->total++;
 	if (stacks->size_b < 2)
 		return ;
 	temp = stacks->stack_b[1];
@@ -36,11 +40,13 @@ void	sb(t_stacks *stacks)
 	stacks->stack_b[0] = temp;
 }
 
-void	ss(t_stacks *stacks)
+void	ss(t_stacks *stacks, t_bench *b)
 {
 	int	temp;
 
 	ft_printf("ss\n");
+	b->ss++;
+	b->total++;
 	if (stacks->size_a >= 2)
 	{
 		temp = stacks->stack_a[1];

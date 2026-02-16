@@ -6,7 +6,7 @@
 /*   By: mabu-are <mabu-are@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 13:33:21 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/01/28 13:33:21 by mabu-are         ###   ########.fr       */
+/*   Updated: 2026/02/16 23:16:13 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,31 @@ static void	move_rb(t_stacks *stacks)
 	stacks->stack_b[stacks->size_b - 1] = temp;
 }
 
-void	ra(t_stacks *stacks)
+void	ra(t_stacks *stacks, t_bench *b)
 {
 	ft_printf("ra\n");
+	b->ra++;
+	b->total++;
 	if (stacks->size_a <= 1)
 		return ;
 	move_ra(stacks);
 }
 
-void	rb(t_stacks *stacks)
+void	rb(t_stacks *stacks, t_bench *b)
 {
 	ft_printf("rb\n");
+	b->rb++;
+	b->total++;
 	if (stacks->size_b <= 1)
 		return ;
 	move_rb(stacks);
 }
 
-void	rr(t_stacks *stacks)
+void	rr(t_stacks *stacks, t_bench *b)
 {
 	ft_printf("rr\n");
+	b->rr++;
+	b->total++;
 	if (stacks->size_a > 1)
 	{
 		move_ra(stacks);

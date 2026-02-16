@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_rr.c                                          +:+      :+:    :+:   */
+/*   move_rr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabu-are <mabu-are@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 19:51:01 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/01/31 19:51:01 by mabu-are         ###   ########.fr       */
+/*   Updated: 2026/02/16 23:16:35 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,29 @@ static void	move_rrb(t_stacks *stacks)
 	stacks->stack_b[0] = temp;
 }
 
-void	rra(t_stacks *stacks)
+void	rra(t_stacks *stacks, t_bench *b)
 {
 	ft_printf("rra\n");
+	b->rra++;
+	b->total++;
 	if (stacks->size_a > 1)
 		move_rra(stacks);
 }
 
-void	rrb(t_stacks *stacks)
+void	rrb(t_stacks *stacks, t_bench *b)
 {
 	ft_printf("rrb\n");
+	b->rrb++;
+	b->total++;
 	if (stacks->size_b > 1)
 		move_rrb(stacks);
 }
 
-void	rrr(t_stacks *stacks)
+void	rrr(t_stacks *stacks, t_bench *b)
 {
 	ft_printf("rrr\n");
+	b->rrr++;
+	b->total++;
 	if (stacks->size_b > 1)
 		move_rrb(stacks);
 	if (stacks->size_a > 1)

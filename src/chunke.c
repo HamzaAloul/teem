@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chunke.c                                           +:+      :+:    :+:   */
+/*   chunke.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabu-are <mabu-are@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 23:34:25 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/02/15 23:34:25 by mabu-are         ###   ########.fr       */
+/*   Updated: 2026/02/16 23:14:09 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	chunke(t_stacks *s)
 	return (i - 1);
 }
 
-static void	revers_selection(t_stacks *s)
+static void	revers_selection(t_stacks *s, char **argv, t_bench *b)
 {
 	int		max;
 	size_t	pos;
@@ -63,19 +63,19 @@ static void	revers_selection(t_stacks *s)
 		pos = find_pos(s, max);
 		if (pos <= s->size_b / 2)
 			while (pos--)
-				rb(s);
+				rb(s, b);
 		else
 		{
 			pos = s->size_b - pos;
 			while (pos--)
-				rrb(s);
+				rrb(s, b);
 		}
-		pa(s);
+		pa(s, b);
 	}
-	test_if_sort(s);
+	test_if_sort(s, argv, b);
 }
 
-void	chunke_sort(t_stacks *s, int min)
+void	chunke_sort(t_stacks *s, int min, char **argv, t_bench *b)
 {
 	const int	chunke_size = chunke(s);
 	int			max;
@@ -88,13 +88,13 @@ void	chunke_sort(t_stacks *s, int min)
 		while (i > 0)
 		{
 			if (s->stack_a[0] <= max && s->stack_a[0] >= min)
-				pb(s);
+				pb(s, b);
 			else
-				ra(s);
+				ra(s, b);
 			i--;
 		}
 		min += chunke_size;
 		max += chunke_size;
 	}
-	revers_selection(s);
+	revers_selection(s, argv, b);
 }

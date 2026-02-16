@@ -6,7 +6,7 @@
 /*   By: halalul <halalul@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:01:52 by halalul           #+#    #+#             */
-/*   Updated: 2026/02/16 15:52:22 by halalul          ###   ########.fr       */
+/*   Updated: 2026/02/16 23:14:34 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	loop(t_stacks *stacks, char **argv, int argc, int i)
 	}
 }
 
-t_stacks	*fill_stack_a(char **argv, int argc, int i)
+t_stacks	*fill_stack_a(char **argv, int argc, int i, t_bench *b)
 {
 	t_stacks	*stacks;
 
@@ -49,5 +49,6 @@ t_stacks	*fill_stack_a(char **argv, int argc, int i)
 		exit_free_stacks(EXIT_MALLOC_FAILURE, "error\n", stacks);
 	loop(stacks, argv, argc, i);
 	stacks->cost = compute_disorder(stacks);
+	b->disorder = compute_disorder(stacks);
 	return (stacks);
 }

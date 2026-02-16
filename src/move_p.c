@@ -6,17 +6,19 @@
 /*   By: mabu-are <mabu-are@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 16:39:13 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/02/08 09:44:21 by mabu-are         ###   ########.fr       */
+/*   Updated: 2026/02/16 23:16:53 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 // push_a meen push from tob of b to tob of a
-void	pa(t_stacks *stacks)
+void	pa(t_stacks *stacks, t_bench *b)
 {
 	size_t	i;
 
+	b->pa++;
+	b->total++;
 	ft_printf("pa\n");
 	if (stacks->size_b == 0)
 		return ;
@@ -37,10 +39,12 @@ void	pa(t_stacks *stacks)
 	stacks->size_b--;
 }
 
-void	pb(t_stacks *stacks)
+void	pb(t_stacks *stacks, t_bench *b)
 {
 	size_t	i;
 
+	b->pb++;
+	b->total++;
 	ft_printf("pb\n");
 	if (stacks->size_a == 0)
 		return ;
