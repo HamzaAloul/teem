@@ -6,7 +6,7 @@
 /*   By: halalul <halalul@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 14:16:18 by halalul           #+#    #+#             */
-/*   Updated: 2026/02/05 16:48:27 by halalul          ###   ########.fr       */
+/*   Updated: 2026/02/17 15:03:17 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ double	compute_disorder(t_stacks *stacks)
 	size_t	i;
 	size_t	j;
 
+	if (stacks->size_a < 2)
+		return (0);
 	mistakes = 0;
 	total_pairs = 0;
 	i = 0;

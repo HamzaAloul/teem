@@ -6,7 +6,7 @@
 /*   By: mabu-are <mabu-are@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:12:17 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/02/16 23:37:08 by halalul          ###   ########.fr       */
+/*   Updated: 2026/02/17 15:12:29 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,30 @@ static t_bench	*fill_b(void)
 	return (b);
 }
 
+static void	ev_thing2(int argc, char **argv, t_stacks *stacks, t_bench *cbench)
+{
+	int	i;
+
+	i = 1;
+	if (ft_strncmp(argv[i], "--bench", 7) == 0)
+		i++;
+	if (ft_strncmp(argv[i], "--complex", 9) == 0)
+	{
+		cbench->strategy = "complex";
+		not_int_error(argv, i + 1);
+		stacks = fill_stack_a(argv, argc, i + 1, cbench);
+		test_if_sort(stacks, argv, cbench);
+		duplicate_error(stacks);
+		refill(stacks);
+		radix(stacks, argv, cbench);
+	}
+	else
+	{
+		cbench->strategy = "adaptive";
+		adaptive(argc, argv, stacks, cbench);
+	}
+}
+
 static void	ev_thing(int argc, char **argv, t_stacks *stacks, t_bench *cbench)
 {
 	int	i;
@@ -49,6 +73,7 @@ static void	ev_thing(int argc, char **argv, t_stacks *stacks, t_bench *cbench)
 		i++;
 	if (ft_strncmp(argv[i], "--medium", 8) == 0)
 	{
+		cbench->strategy = "medium";
 		not_int_error(argv, i + 1);
 		stacks = fill_stack_a(argv, argc, i + 1, cbench);
 		test_if_sort(stacks, argv, cbench);
@@ -56,17 +81,7 @@ static void	ev_thing(int argc, char **argv, t_stacks *stacks, t_bench *cbench)
 		refill(stacks);
 		chunke_sort(stacks, 0, argv, cbench);
 	}
-	else if (ft_strncmp(argv[i], "--complex", 9) == 0)
-	{
-		not_int_error(argv, i + 1);
-		stacks = fill_stack_a(argv, argc, i + 1, cbench);
-		test_if_sort(stacks, argv, cbench);
-		duplicate_error(stacks);
-		refill(stacks);
-		radix(stacks, argv, cbench);
-	}
-	else
-		adaptive(argc, argv, stacks, cbench);
+	ev_thing2(argc, argv, stacks, cbench);
 }
 
 int	main(int argc, char **argv)
@@ -85,9 +100,9 @@ int	main(int argc, char **argv)
 		return (0);
 	if (ft_strncmp(argv[i], "--simple", 8) == 0)
 	{
-		i++;
-		not_int_error(argv, i);
-		stacks = fill_stack_a(argv, argc, i, cbench);
+		cbench->strategy = "simple";
+		not_int_error(argv, i + 1);
+		stacks = fill_stack_a(argv, argc, i + 1, cbench);
 		test_if_sort(stacks, argv, cbench);
 		duplicate_error(stacks);
 		selection_sort(stacks, argv, cbench);

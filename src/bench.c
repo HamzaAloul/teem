@@ -6,21 +6,32 @@
 /*   By: halalul <halalul@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 19:19:49 by halalul           #+#    #+#             */
-/*   Updated: 2026/02/16 23:39:05 by halalul          ###   ########.fr       */
+/*   Updated: 2026/02/17 15:44:18 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	line_2(t_bench *b)
+static void	line_2(char **argv, t_bench *b)
 {
-	b->strategy = "miaw";
 	ft_putstr_fd("[bench] strategy:  ", 2);
 	ft_putstr_fd(b->strategy, 2);
+	if (ft_strncmp(argv[2], "--simple", 8) == 0)
+		ft_putstr_fd(" / O(n^2)", 2);
+	else if (ft_strncmp(argv[2], "--medium", 8) == 0)
+		ft_putstr_fd(" / O(n*√n)", 2);
+	else if (ft_strncmp(argv[2], "--complex", 9) == 0)
+		ft_putstr_fd(" / O(n*(log n))", 2);
+	else if (b->disorder < 0.2)
+                ft_putstr_fd(" / O(n)", 2);
+	else if (b->disorder < 0.5)
+		ft_putstr_fd(" / O(n*√n)", 2);
+	else if (b->disorder >= 0.5)
+		ft_putstr_fd(" / O(n*(log n))", 2);
 	ft_putstr_fd("\n", 2);
 }
 
-static void	line_1_2_3(t_bench *b)
+static void	line_1_2_3(char **argv, t_bench *b)
 {
 	int	d;
 
@@ -31,7 +42,7 @@ static void	line_1_2_3(t_bench *b)
 	ft_putnbr_fd(d % 100, 2);
 	ft_putstr_fd("%", 2);
 	ft_putstr_fd("\n", 2);
-	line_2(b);
+	line_2(argv, b);
 	ft_putstr_fd("[bench] total_ops:  ", 2);
 	ft_putnbr_fd(b->total, 2);
 	ft_putstr_fd("\n", 2);
@@ -69,12 +80,10 @@ void	bench(char **argv, t_bench *b)
 {
 	if (ft_strncmp(argv[1], "--bench", 7) != 0)
 	{
-		free(b->strategy);
 		free(b);
 		return ;
 	}
-	line_1_2_3(b);
+	line_1_2_3(argv ,b);
 	line_4_5(b);
-	free(b->strategy);
 	free(b);
 }
