@@ -29,7 +29,7 @@ We implemented three main sorting algorithms, triggered either by flags or autom
 
 ## Adaptive Mode (`--adaptive`)
 The program calculates a **disorder metric** before starting:
-$$\text{disorder} = \frac{\text{mistakes}}{\text{total\_pairs}}$$
+mistakes / total_pairs
 
 * **Low Disorder (< 0.2):** Must run in $O(n)$ time. We use an optimized insertion check.
 * **Medium Disorder (0.2 - 0.5):** Uses **Chunk-based Sort** ($O(n\sqrt{n})$).

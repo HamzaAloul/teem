@@ -6,7 +6,7 @@
 /*   By: mabu-are <mabu-are@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 08:38:20 by mabu-are          #+#    #+#             */
-/*   Updated: 2026/02/16 23:17:30 by halalul          ###   ########.fr       */
+/*   Updated: 2026/02/17 16:34:24 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	test_if_sort(t_stacks *stacks, char **argv, t_bench *b)
 
 	if (stacks->size_a < 2 && stacks->size_b == 0)
 	{
-		bench(argv, b);
+		if (stacks->size_a == 1)
+			bench(argv, b);
 		exit_free_stacks(EXIT_SUCCESS, "", stacks);
 	}
 	size = 0;

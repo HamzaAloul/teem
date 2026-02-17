@@ -6,7 +6,7 @@
 /*   By: halalul <halalul@learner.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 19:19:49 by halalul           #+#    #+#             */
-/*   Updated: 2026/02/17 15:44:18 by halalul          ###   ########.fr       */
+/*   Updated: 2026/02/17 16:37:22 by halalul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	line_2(char **argv, t_bench *b)
 	else if (ft_strncmp(argv[2], "--complex", 9) == 0)
 		ft_putstr_fd(" / O(n*(log n))", 2);
 	else if (b->disorder < 0.2)
-                ft_putstr_fd(" / O(n)", 2);
+		ft_putstr_fd(" / O(n)", 2);
 	else if (b->disorder < 0.5)
 		ft_putstr_fd(" / O(n*√n)", 2);
 	else if (b->disorder >= 0.5)
@@ -83,7 +83,7 @@ void	bench(char **argv, t_bench *b)
 		free(b);
 		return ;
 	}
-	line_1_2_3(argv ,b);
+	line_1_2_3(argv, b);
 	line_4_5(b);
 	free(b);
 }
